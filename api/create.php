@@ -6,22 +6,22 @@
 	header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 	include_once '../config/database.php';
-	include_once '../class/Pegawai.php';
+	// include_once '../class/Pegawai.php';
 
 	$database = new Database();
 	$db = $database->getKoneksi();
-	$peg= new Pegawai($db);
+	// $peg= new Pegawai($db);
 	$data = json_decode(file_get_contents("php://input"));
 	
-	$peg->nama = $data->nama;
-	$peg->email = $data->email;
-	$peg->umur = $data->umur;
-	$peg->jabatan = $data->jabatan;
-	$peg->created = date('Y-m-d H:i:s');
+	// $peg->nama = $data->nama;
+	// $peg->email = $data->email;
+	// $peg->umur = $data->umur;
+	// $peg->jabatan = $data->jabatan;
+	// $peg->created = date('Y-m-d H:i:s');
 	
-	if($peg->tambahPegawai()){
-		echo json_encode('Tambah rekaman pegawai successfully.');
-	} else{
-		echo json_encode('Terjadi kesalah data tidak direkam.');
-	}
+	// if($peg->tambahPegawai()){
+	// 	echo json_encode('Tambah rekaman pegawai successfully.');
+	// } else{
+	// 	echo json_encode('Terjadi kesalah data tidak direkam.');
+	// }
 ?>
