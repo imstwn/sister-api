@@ -1,6 +1,6 @@
 <?php 
 
-class Pegawai{
+class Mahasiswa{
 	// var koneksi
 	private $konek;
 	// Tabel
