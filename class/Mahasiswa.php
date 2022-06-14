@@ -69,9 +69,8 @@ class Mahasiswa{
 	} 
 	// Mengubah Rekaman
 	public function ubahMahasiswa(){
-		$sql = "UPDATE ". $this->tabel ." SET nama= :nama, email= :email, 
-		tmplahir= :tmplahir, tgllahir= :tgllahir, 
-		created= :created WHERE id= :id";
+		$sql = "UPDATE ". $this->tabel ." SET ktp= :ktp, nama= :nama, email= :email, 
+		tmplahir= :tmplahir, tgllahir= :tgllahir, created= :created WHERE id= :id";
 		$stmt = $this->konek->prepare($sql);
 		$this->ktp =htmlspecialchars(strip_tags($this->ktp));
 		$this->nama =htmlspecialchars(strip_tags($this->nama));
