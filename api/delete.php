@@ -6,17 +6,17 @@
 	header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers,Authorization, X-Requested-With");
 
 	include_once '../config/database.php';
-	// include_once '../class/Pegawai.php';
+	include_once '../class/Mahasiswa.php';
 
 	$database = new Database();
 	$db = $database->getKoneksi();
-	// $peg = new Pegawai($db);
+	$mhs = new Mahasiswa($db);
 	$data = json_decode(file_get_contents("php://input"));
 	
-	// $peg->id = $data->id;
-	// if($peg->hapusPegawai()){
-	// 	echo json_encode("Telah terhapus satu rekaman.");
-	// } else{
-	// 	echo json_encode("Data tidak ditemukan");
-	// }
+	$mhs->id = $data->id;
+	if($mhs->hapusMahasiswa()){
+		echo json_encode("Telah terhapus satu rekaman.");
+	} else{
+		echo json_encode("Data tidak ditemukan");
+	}
 ?>
