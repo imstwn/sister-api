@@ -22,6 +22,7 @@
 	$mhs->tmplahir = $data->tmplahir;
 	$mhs->tgllahir = $data->tgllahir;
 	$mhs->alamat = $data->alamat;
+	$mhs->created = date('Y-m-d H:i:s');
 
 	// $peg->nama = $data->nama;
 	// $peg->email = $data->email;
