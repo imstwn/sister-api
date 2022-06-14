@@ -42,6 +42,7 @@ class Mahasiswa{
 		$this->tgllahir=htmlspecialchars(strip_tags($this->tgllahir));
 		$this->created=htmlspecialchars(strip_tags($this->created));
 		// bind data
+		$stmt->bindParam(":ktp", $this->ktp);
 		$stmt->bindParam(":nama", $this->nama);
 		$stmt->bindParam(":email", $this->email);
 		$stmt->bindParam(":tmplahir", $this->tmplahir);
@@ -59,6 +60,7 @@ class Mahasiswa{
 		$stmt->bindParam(1, $this->id);
 		$stmt->execute();
 		$dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+		$this->ktp = $dataRow['ktp'];
 		$this->nama = $dataRow['nama'];
 		$this->email = $dataRow['email'];
 		$this->tmplahir = $dataRow['tmplahir'];
@@ -71,6 +73,7 @@ class Mahasiswa{
 		tmplahir= :tmplahir, tgllahir= :tgllahir, 
 		created= :created WHERE id= :id";
 		$stmt = $this->konek->prepare($sql);
+		$this->ktp =htmlspecialchars(strip_tags($this->ktp));
 		$this->nama =htmlspecialchars(strip_tags($this->nama));
 		$this->email =htmlspecialchars(strip_tags($this->email));
 		$this->tmplahir =htmlspecialchars(strip_tags($this->tmplahir));
@@ -78,6 +81,7 @@ class Mahasiswa{
 		$this->created=htmlspecialchars(strip_tags($this->created));
 		$this->id =htmlspecialchars(strip_tags($this->id));
 		// bind data
+		$stmt->bindParam(":ktp", $this->ktp);
 		$stmt->bindParam(":nama", $this->nama);
 		$stmt->bindParam(":email", $this->email);
 		$stmt->bindParam(":tmplahir", $this->tmplahir);
