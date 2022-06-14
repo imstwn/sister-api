@@ -15,11 +15,13 @@
 	$data = json_decode(file_get_contents("php://input"));
 	$mhs->id = $data->id;
 	// Mengubah isi rek pagawai
+	$mhs->nim = $data->nim;
 	$mhs->ktp = $data->ktp;
 	$mhs->nama = $data->nama;
 	$mhs->email = $data->email;
 	$mhs->tmplahir = $data->tmplahir;
 	$mhs->tgllahir = $data->tgllahir;
+	$mhs->alamat = $data->alamat;
 	$mhs->created = date('Y-m-d H:i:s');
 	if($mhs->ubahMahasiswa()){
 		echo json_encode("Mahasiswa talah updated.");

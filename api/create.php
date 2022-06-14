@@ -15,11 +15,13 @@
 	$mhs = new Mahasiswa($db);
 	$data = json_decode(file_get_contents("php://input"));
 	
+	$mhs->nim = $data->nim;
 	$mhs->ktp = $data->ktp;
 	$mhs->nama = $data->nama;
 	$mhs->email = $data->email;
 	$mhs->tmplahir = $data->tmplahir;
 	$mhs->tgllahir = $data->tgllahir;
+	$mhs->alamat = $data->alamat;
 
 	// $peg->nama = $data->nama;
 	// $peg->email = $data->email;

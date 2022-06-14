@@ -27,11 +27,13 @@
 			extract($row);
 			$e = array(
 			"id" => $id,
+			"nim" => $nim,
 			"ktp" => $ktp,
 			"nama" => $nama,
 			"email" => $email,
 			"tmplahir" => $tmplahir,
 			"tgllahir" => $tgllahir,
+			"alamat" => $alamat,
 			"created" => $created
 			);
 		array_push($mhsArr["body"], $e);
