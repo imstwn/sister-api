@@ -7,29 +7,30 @@
 	Authorization, X-Requested-With");
 
 	include_once '../config/database.php';
-	// include_once '../class/Pegawai.php';
+	include_once '../class/Mahasiswa.php';
 
 	$database = new Database();
 	$db = $database->getKoneksi();
-	// $peg = new Pegawai($db);
+	$mhs = new Mahasiswa($db);
 	
-	// $peg->id = isset($_GET['id']) ? $_GET['id'] : die();
-	// $peg->bacaSatuPegawai();
-	// if($peg->nama != null){
-	// // membuat array
-	// 	$pegArr = array(
-	// 	"id" => $peg->id,
-	// 	"nama" => $peg->nama,
-	// 	"email" => $peg->email,
-	// 	"umur" => $peg->umur,
-	// 	"jabatan" => $peg->jabatan,
-	// 	"created" => $peg->created
-	// 	);
-	// 	http_response_code(200);
-	// 	echo json_encode($pegArr);
-	// }
-	// else{
-	// 	http_response_code(404);
-	// 	echo json_encode("Pegawai tidak ditemukan.");
-	// }
+	$mhs->id = isset($_GET['id']) ? $_GET['id'] : die();
+	$mhs->bacaSatuMahasiswa();
+	if($mhs->nama != null){
+	// membuat array
+		$mhsArr = array(
+		"id" => $mhs->id,
+		"ktp" => $mhs->ktp,
+		"nama" => $mhs->nama,
+		"email" => $mhs->email,
+		"tmplahir" => $mhs->tmplahir,
+		"tgllahir" => $mhs->tgllahir,
+		"created" => $mhs->created
+		);
+		http_response_code(200);
+		echo json_encode($mhsArr);
+	}
+	else{
+		http_response_code(404);
+		echo json_encode("Mahasiswa tidak ditemukan.");
+	}
 ?>
